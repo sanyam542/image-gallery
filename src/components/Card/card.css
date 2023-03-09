@@ -1,0 +1,10 @@
+/* .cardContainer{
+    margin: auto;
+    max-width: 85%;
+} */
+ul{
+    display: inline-block;
+}
+li{
+    /* display: inline-block; */
+}
