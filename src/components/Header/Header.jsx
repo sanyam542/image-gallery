@@ -11,9 +11,14 @@ function Header(props) {
 
   return (
     <>
-      <div className=" max-w-screen-2xl m-auto ">
+      <div className=" mx-16 ">
         <div className=" flex justify-between items-center py-8 ">
-          <h1 className="text-3xl font-mono	">Image Gallery</h1>
+          <h1
+            onClick={() => window.location.reload()}
+            className="text-3xl font-mono	cursor-pointer"
+          >
+            Image Gallery
+          </h1>
           <form action="" onSubmit={submitForm}>
             <input
               className="h-9 w-96 border-2  border-gray-300 rounded-md p-2 "
@@ -22,9 +27,9 @@ function Header(props) {
               type="text"
             />
           </form>
-          <h3>Exploration</h3>
-          <h3>Collection</h3>
-          <h3>Community</h3>
+          <h3 className="cursor-pointer">Exploration</h3>
+          <h3 className="cursor-pointer">Collection</h3>
+          <h3 className="cursor-pointer">Community</h3>
           <div className=" flex">
             <h3>Dark Mode</h3>
             <label className="switch">
