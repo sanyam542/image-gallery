@@ -11,7 +11,7 @@ export default function Banner(props) {
   return (
     <>
       <div
-        className="banner  h-96 text-white flex flex-col justify-center items-center bg-[center_bottom_-16rem] bg-cover  "
+        className="banner  h-96 text-white flex flex-col justify-center items-center bg-[center_bottom_-16rem] bg-cover sm:w-full  "
         style={{ backgroundImage: "url(./bg.jpg)" }}
       >
         <h1 className="text-5xl">Download High Quality Images by creators</h1>
@@ -25,7 +25,7 @@ export default function Banner(props) {
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
-      <div className=" m-auto flex   dark:bg-neutral-800 ">
+      <div className=" m-auto flex  transition-colors duration-500 dark:bg-neutral-800 ">
         <Card query={query} />
       </div>
     </>

@@ -36,8 +36,8 @@ function Header(props) {
 
   return (
     <>
-      <div className="   dark:bg-neutral-800 px-16 ">
-        <div className=" flex justify-between items-center py-8 ">
+      <div className="  transition-colors duration-500  dark:bg-neutral-800 px-16 ">
+        <div className=" flex justify-between items-center py-8   ">
           <h1
             onClick={() => window.location.reload()}
             className="text-3xl font-mono	cursor-pointer dark:text-white"
@@ -46,7 +46,7 @@ function Header(props) {
           </h1>
           <form action="" onSubmit={submitForm}>
             <input
-              className="h-9 w-96 border-2  border-gray-300 rounded-md p-2 font-sans font-light "
+              className="sm:h-9 sm:w-96 border-2  border-gray-300 rounded-md p-2 font-sans font-light "
               placeholder="Search your Images here"
               onChange={(e) => setQuery(e.target.value)}
               type="text"

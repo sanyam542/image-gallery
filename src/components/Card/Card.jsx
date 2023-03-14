@@ -47,7 +47,7 @@ export default function Card(props) {
   }
   return (
     <>
-      <div className="mt-16 mx-16 columns-3 ">
+      <div className="mt-16 mx-16 sm:columns-3 ">
         {data.length === 0 ? (
           <h1 className="text-gray-300 text-4xl ">
             No Images Found, Try another keyword
@@ -57,7 +57,11 @@ export default function Card(props) {
             return (
               <>
                 {popup !== null ? (
-                  <Popup value={popup} onClose={() => setPopup(null)} />
+                  <Popup
+                    className=""
+                    value={popup}
+                    onClose={() => setPopup(null)}
+                  />
                 ) : null}
                 <ul
                   className=" 

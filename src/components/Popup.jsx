@@ -5,14 +5,14 @@ import CloseIcon from "@mui/icons-material/Close";
 export default function Popup(props) {
   return (
     <>
-      <div className=" fixed top-[15%] left-[10%] w-4/5 h-4/5 bg-white ease-in flex justify-center items-center flex-col dark:bg-neutral-800  rounded-xl">
+      <div className=" fixed top-[15%] left-[10%] w-4/5 h-4/5 bg-white ease-in flex justify-center items-center flex-col dark:bg-neutral-800  rounded-xl transition-all ease-in-out duration-300">
         <img
-          className="h-[80%] w-auto "
+          className="h-[80%] w-auto rounded-xl  "
           src={props.value.urls.regular}
           alt="error"
         />
         <button
-          className=" left-[89%]  bg-white text-black rounded-full  top-[14%] fixed text-white"
+          className=" left-[89%]   text-black bg-neutral-300  rounded-full  top-[14%] fixed "
           onClick={props.onClose}
         >
           <CloseIcon />
