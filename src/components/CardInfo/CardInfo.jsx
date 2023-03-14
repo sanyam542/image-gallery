@@ -3,21 +3,21 @@ import React from "react";
 export default function CardInfo(props) {
   return (
     <>
-      <ul className="info flex justify-around items-center p-2 pt-1 rounded-b-xl border-x-2 border-b-2 border-slate-150">
+      <ul className="flex justify-around items-center p-2 pt-1 rounded-b-xl border-x-2 border-b-2 border-slate-150 dark:border-black  dark:bg-black text-xs">
         <li>
           <img
-            className="rounded-full w-12  "
+            className="rounded-full w-10 mt-1  "
             src={props.value.user.profile_image.large}
             alt=""
           ></img>
         </li>
         <ul className="flex flex-col space-y-0  ">
           <li>{props.value.user.name}</li>
-          <li className="italic text-gray-500 font-thin text-sm ">
+          <li className="italic text-neutral-400 font-thin text-xs ">
             {props.value.user.instagram_username}
           </li>
         </ul>
-        <li className="flex text-sm items-center text-gray-600">
+        <li className="flex text-xs items-center text-neutral-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

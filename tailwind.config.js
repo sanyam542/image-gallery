@@ -4,6 +4,7 @@ module.exports = {
     "./src/**/*.{html,js,jsx,ts,tsx}",
     // ".src/components/Header/**/*.{html,js,jsx,ts,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {},
   },

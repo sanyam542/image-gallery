@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    #root > div > div.dark\:bg-neutral-800.px-16 > div > h1{
+        font-family: 'Montserrat', sans-serif;
+    }
+    .app {
+        font-family: 'Montserrat', sans-serif;
+
+    }
+}

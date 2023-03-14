@@ -3,18 +3,21 @@ import Image from "../Image/Image";
 import CardInfo from "../CardInfo/CardInfo";
 
 import Axios from "axios";
+import Popup from "../Popup";
 // import AppContext from "../Header/Header";
 
 export default function Card(props) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [popup, setPopup] = useState(null);
+
   useEffect(() => {
     const response = async () =>
       await Axios.get(
         `https://api.unsplash.com/photos?page=1&per_page=30&client_id=uGEddsQYJLPjLlRYE-6s_YlHTP5c3OKab_cX_B4RNpU`
       ).then((res) => {
         let results = res.data;
-        console.log(results);
+
         setData(results);
         setLoading(false);
       });
@@ -38,31 +41,42 @@ export default function Card(props) {
     return <div>Loading...</div>;
   }
 
+  function handlePopup(info) {
+    setPopup(info);
+    console.log(popup);
+  }
   return (
-    <div className="mt-16 mx-16 ">
-      {data.length === 0 ? (
-        <h1 className="text-gray-300 text-4xl">
-          No Images Found, Try another keyword
-        </h1>
-      ) : (
-        data.map((value, index) => {
-          return (
-            <ul
-              className=" 
-            m-4  flex flex-col "
-              style={{ display: "inline-block" }}
-            >
-              <li className="" style={{ display: "inline-block" }}>
-                <Image url={value.urls.small} key={index} />
-              </li>
+    <>
+      <div className="mt-16 mx-16 columns-3 ">
+        {data.length === 0 ? (
+          <h1 className="text-gray-300 text-4xl ">
+            No Images Found, Try another keyword
+          </h1>
+        ) : (
+          data.map((value, index) => {
+            return (
+              <>
+                {popup !== null ? (
+                  <Popup value={popup} onClose={() => setPopup(null)} />
+                ) : null}
+                <ul
+                  className=" 
+            m-4   dark:text-white inline-block cursor-pointer  "
+                  onClick={() => handlePopup(value)}
+                >
+                  <li className="inline-block">
+                    <Image url={value.urls.small} key={index} />
+                  </li>
 
-              <li>
-                <CardInfo value={value} />
-              </li>
-            </ul>
-          );
-        })
-      )}
-    </div>
+                  <li>
+                    <CardInfo value={value} />
+                  </li>
+                </ul>
+              </>
+            );
+          })
+        )}
+      </div>
+    </>
   );
 }
