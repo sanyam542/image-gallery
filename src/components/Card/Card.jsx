@@ -47,7 +47,7 @@ export default function Card(props) {
   }
   return (
     <>
-      <div className="mt-16 mx-16 sm:columns-3 ">
+      <div className="  sm:columns-3 columns-2 w-[100%] :w-[85%] m-auto">
         {data.length === 0 ? (
           <h1 className="text-gray-300 text-4xl ">
             No Images Found, Try another keyword
@@ -65,7 +65,7 @@ export default function Card(props) {
                 ) : null}
                 <ul
                   className=" 
-            m-4   dark:text-white inline-block cursor-pointer  "
+            sm:m- m-2  dark:text-white inline-block cursor-pointer  max-w-[90%]   "
                   onClick={() => handlePopup(value)}
                 >
                   <li className="inline-block">

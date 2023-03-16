@@ -3,28 +3,28 @@ import React from "react";
 export default function CardInfo(props) {
   return (
     <>
-      <ul className="flex justify-around items-center p-2 pt-1 rounded-b-xl border-x-2 border-b-2 border-slate-150 dark:border-black  dark:bg-black text-xs">
+      <ul className="flex justify-around items-center p-2 pt-1 rounded-b-xl border-x-2 border-b-2 border-slate-150 dark:border-black  dark:bg-black text-[8px]">
         <li>
           <img
-            className="rounded-full w-10 mt-1  "
+            className="rounded-full sm:w-10 w-[28px] mt-1  "
             src={props.value.user.profile_image.large}
             alt=""
           ></img>
         </li>
-        <ul className="flex flex-col space-y-0  ">
+        <ul className="flex flex-col space-y-0 p-1 ">
           <li>{props.value.user.name}</li>
-          <li className="italic text-neutral-400 font-thin text-xs ">
+          <li className="italic text-neutral-400 font-thin sm:text-xs  ">
             {props.value.user.instagram_username}
           </li>
         </ul>
-        <li className="flex text-xs items-center text-neutral-400">
+        <li className="flex sm:text-xs items-center text-neutral-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-4 h-4 mr-0.5"
+            className="sm:w-4 sm:h-4 mr-0.5 w-3"
           >
             <path
               strokeLinecap="round"
