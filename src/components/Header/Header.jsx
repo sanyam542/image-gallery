@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ReactSwitch from "react-switch";
-import SearchIcon from "@mui/icons-material/Search";
-import MenuIcon from "@mui/icons-material/Menu";
 
-import Banner from "../Banner/Banner";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Context } from "../context/Context";
 
 function Header(props) {
-  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+  const queryContext = useContext(Context);
 
   //dark mode
   const [theme, setTheme] = useState(null);
@@ -29,12 +29,11 @@ function Header(props) {
 
   const handleThemeSwitch = () => {
     setTheme(theme === "dark" ? "light" : "dark");
-    console.log(theme);
   };
 
   return (
     <>
-      <div className="  transition-colors duration-500  dark:bg-neutral-800 sm:px-16 ">
+      <div className="  transition-colors duration-500 bg-white dark:bg-neutral-800 sm:px-16 sticky top-0 w-full ">
         <div className=" flex justify-between items-center sm:py-8  py-6 max-w-[85%] m-auto  ">
           <h1
             onClick={() => window.location.reload()}
@@ -44,28 +43,45 @@ function Header(props) {
           </h1>
           <form action="">
             <input
-              className="sm:h-9 sm:w-96 border-2  hidden border-gray-300 rounded-md p-2 font-sans font-light "
+              className="sm:h-9 sm:w-96 border-2  hidden sm:inline-block border-gray-300 rounded-md p-2 font-sans font-light "
               placeholder="Search your Images here"
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => queryContext.setKeyword(e.target.value)}
               type="text"
             />
           </form>
-          <MenuIcon className="text-white" />
-          <h3 className="cursor-pointer dark:text-white hidden">Exploration</h3>
-          <h3 className="cursor-pointer dark:text-white hidden">Collection</h3>
-          <h3 className="cursor-pointer dark:text-white hidden">Community</h3>
-          <div className="switch sm:flex items-center dark:text-white hidden">
-            <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-            <ReactSwitch
-              onChange={handleThemeSwitch}
-              checked={theme === "dark"}
+          <div className=" sm:hidden">
+            <MenuIcon
+              className="dark:text-white text-black  "
+              onClick={() => setOpen(!open)}
             />
           </div>
+
+          {open ? <></> : null}
+
+          <ul
+            className={`sm:flex absolute ${
+              open ? "top-20 " : "top-[-490px]"
+            } dark:bg-neutral-600 w-[85%] p-12 transition-all duration-300 ease-in rounded-md  bg-neutral-200`}
+          >
+            <h3 className="cursor-pointer dark:text-white sm:inline my-7 hover:text-black duration-500">
+              Exploration
+            </h3>
+            <h3 className="cursor-pointer dark:text-white sm:inline my-7 ">
+              Collection
+            </h3>
+            <h3 className="cursor-pointer dark:text-white sm:inline my-7">
+              Community
+            </h3>
+            <div className="switch flex items-center dark:text-white ">
+              <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+              <ReactSwitch
+                onChange={handleThemeSwitch}
+                checked={theme === "dark"}
+              />
+            </div>
+          </ul>
         </div>
       </div>
-      <Banner query={query} />
-
-      {/* <Card className="card" query={query} /> */}
     </>
   );
 }

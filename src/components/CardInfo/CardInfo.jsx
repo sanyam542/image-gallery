@@ -13,9 +13,15 @@ export default function CardInfo(props) {
         </li>
         <ul className="flex flex-col space-y-0 p-1 ">
           <li>{props.value.user.name}</li>
-          <li className="italic text-neutral-400 font-thin sm:text-xs  ">
-            {props.value.user.instagram_username}
-          </li>
+          {(
+            props.value.user.instagram_username !== null
+              ? props.value.user.instagram_username.length <= 20
+              : null
+          ) ? (
+            <li className="italic text-neutral-400 font-thin sm:text-xs   ">
+              {props.value.user.instagram_username}
+            </li>
+          ) : null}
         </ul>
         <li className="flex sm:text-xs items-center text-neutral-400">
           <svg

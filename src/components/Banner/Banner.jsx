@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Card from "../Card/Card";
+import React, { useContext } from "react";
+import { Context } from "../context/Context";
 
-export default function Banner(props) {
-  useEffect(() => {
-    setQuery(props.query);
-  }, [props.query]);
-
-  const [query, setQuery] = useState("");
+export default function Banner() {
+  const queryContext = useContext(Context);
 
   return (
     <>
       <div
-        className="  sm:h-96 text-white flex flex-col justify-center items-center bg-[center_bottom_-16rem] bg-cover sm:w-full text-center p-4"
+        className="  sm:h-96 text-white flex flex-col justify-center items-center bg-[center_bottom_-16rem] bg-cover sm:w-full text-center p-4   "
         style={{ backgroundImage: "url(./bg.jpg)" }}
       >
         <h1 className="sm:text-5xl">
@@ -24,11 +20,8 @@ export default function Banner(props) {
           type="text"
           className="sm:h-12 sm:w-3/6 h-4 rounded-lg p-4 pl-6 text-gray-500 font-sans font-light text-xs"
           placeholder="Search high resolution Images, categories, wallpapers"
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => queryContext.setKeyword(e.target.value)}
         />
-      </div>
-      <div className=" m-auto max-w-[100%]  transition-colors duration-500 dark:bg-neutral-800 ">
-        <Card query={query} />
       </div>
     </>
   );

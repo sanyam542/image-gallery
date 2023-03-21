@@ -43,14 +43,17 @@ export default function Card(props) {
 
   function handlePopup(info) {
     setPopup(info);
-    console.log(popup);
   }
   return (
-    <>
-      <div className="  sm:columns-3 columns-2 w-[100%] :w-[85%] m-auto">
+    <div className="transition-colors duration-500  dark:bg-neutral-800 ">
+      <div className="  sm:columns-3 columns-2 pt-2 w-[85%] m-auto  ">
         {data.length === 0 ? (
           <h1 className="text-gray-300 text-4xl ">
-            No Images Found, Try another keyword
+            No Images Found, Try another keyword or go to
+            <a href="/" className=" ">
+              {" "}
+              home
+            </a>
           </h1>
         ) : (
           data.map((value, index) => {
@@ -65,7 +68,7 @@ export default function Card(props) {
                 ) : null}
                 <ul
                   className=" 
-            sm:m- m-2  dark:text-white inline-block cursor-pointer  max-w-[90%]   "
+            sm:m- my-2  dark:text-white inline-block cursor-pointer  max-w-[100%]   "
                   onClick={() => handlePopup(value)}
                 >
                   <li className="inline-block">
@@ -81,6 +84,6 @@ export default function Card(props) {
           })
         )}
       </div>
-    </>
+    </div>
   );
 }
