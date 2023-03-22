@@ -3,16 +3,16 @@ export default function Popup(props) {
   return (
     <>
       <div
-        className=" fixed sm:top-[15%] sm:left-[10%] top-[5%] left-[2.5%]  sm:w-4/5 sm:h-4/5
+        className=" fixed md:top-[15%] md:left-[10%] top-[5%] left-[2.5%]  md:w-4/5 md:h-4/5
       w-[95%] h-[95%] bg-white ease-in flex justify-start items-center flex-col dark:bg-neutral-600  rounded-xl transition-all ease-in-out duration-300"
       >
         <img
-          className="sm:h-[80%] h-[65%] w-[100%] object-cover  rounded-t-xl justify-self-start "
+          className="md:h-[80%] h-[65%] w-[100%] object-cover  rounded-t-xl justify-self-start "
           src={props.value.urls.regular}
           alt="error"
         />
         <button
-          className=" sm:left-[89%]   text-black bg-neutral-300  rounded-full  sm:top-[14%] right-[1%] top-[4%] fixed "
+          className=" md:left-[88%] md:w-9  text-black bg-neutral-300  rounded-full  md:top-[14%] right-[1%] top-[4%] fixed border border-black	sm:p-1 "
           onClick={props.onClose}
         >
           <CloseIcon />

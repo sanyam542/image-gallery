@@ -17,7 +17,7 @@ export default function Card(props) {
         `https://api.unsplash.com/photos?page=1&per_page=30&client_id=uGEddsQYJLPjLlRYE-6s_YlHTP5c3OKab_cX_B4RNpU`
       ).then((res) => {
         let results = res.data;
-
+        console.log(results);
         setData(results);
         setLoading(false);
       });
@@ -46,7 +46,7 @@ export default function Card(props) {
   }
   return (
     <div className="transition-colors duration-500  dark:bg-neutral-800 ">
-      <div className="  sm:columns-3 columns-2 pt-2 w-[85%] m-auto  ">
+      <div className=" 2xl:columns-5  sm:columns-3 columns-2 pt-2 w-[85%] m-auto  ">
         {data.length === 0 ? (
           <h1 className="text-gray-300 text-4xl ">
             No Images Found, Try another keyword or go to
