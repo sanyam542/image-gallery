@@ -39,9 +39,9 @@ function Header(props) {
             onClick={() => window.location.reload()}
             className="sm:text-3xl font-mono	cursor-pointer dark:text-white flex items-center"
           >
-            <h1 className=" font-img text-red-600 sm:text-5xl text-2xl ">
+            <div className=" font-img text-red-600 sm:text-5xl text-2xl ">
               Image{" "}
-            </h1>
+            </div>
             Gallery
           </h1>
           <form action="">

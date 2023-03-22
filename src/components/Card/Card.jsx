@@ -17,7 +17,7 @@ export default function Card(props) {
         `https://api.unsplash.com/photos?page=1&per_page=30&client_id=uGEddsQYJLPjLlRYE-6s_YlHTP5c3OKab_cX_B4RNpU`
       ).then((res) => {
         let results = res.data;
-        console.log(results);
+
         setData(results);
         setLoading(false);
       });
@@ -61,6 +61,7 @@ export default function Card(props) {
               <>
                 {popup !== null ? (
                   <Popup
+                    key={index}
                     className=""
                     value={popup}
                     onClose={() => setPopup(null)}
@@ -72,11 +73,11 @@ export default function Card(props) {
                   onClick={() => handlePopup(value)}
                 >
                   <li className="inline-block">
-                    <Image url={value.urls.small} key={index} />
+                    <Image key={index} url={value.urls.small} />
                   </li>
 
                   <li>
-                    <CardInfo value={value} />
+                    <CardInfo key={index} value={value} />
                   </li>
                 </ul>
               </>

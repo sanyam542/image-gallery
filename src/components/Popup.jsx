@@ -77,6 +77,14 @@ export default function Popup(props) {
             </li>
           </ul>
         </div>
+        <a
+          href={props.value.links.download}
+          target="_blank"
+          rel="noreferrer"
+          className=" bg-green-500 px-6 py-1 rounded-sm text-white font-thin  "
+        >
+          Download
+        </a>
       </div>
     </>
   );
