@@ -46,7 +46,7 @@ function Header(props) {
           </h1>
           <form action="">
             <input
-              className="sm:h-9 xl:w-96 lg:w-84 border-2  hidden lg:inline-block border-gray-300 rounded-md px-6 font-sans font-light text-xs "
+              className="sm:h-9 xl:w-96 lg:w-84 border-2  hidden lg:inline-block border-gray-300 rounded-md px-6 font-sans font-light text-xs truncate "
               placeholder="Search your Images here"
               onChange={(e) => queryContext.setKeyword(e.target.value)}
               type="text"

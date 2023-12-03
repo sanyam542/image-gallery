@@ -51,7 +51,6 @@ export default function Card(props) {
           <h1 className="text-gray-300 text-4xl ">
             No Images Found, Try another keyword or go to
             <a href="/" className=" ">
-              {" "}
               home
             </a>
           </h1>
