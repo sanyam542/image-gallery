@@ -46,14 +46,17 @@ export default function Card(props) {
   }
   return (
     <div className="transition-colors duration-500  dark:bg-neutral-800 ">
+      {data.length === 0 && (
+        <h1 className="text-gray-300 text-4xl h-[100vh]  md:p-20 p-5">
+          No Images Found, Try another keyword or go to{" "}
+          <a href="/" className="  text-blue-500">
+            Home
+          </a>
+        </h1>
+      )}
       <div className=" 2xl:columns-5  sm:columns-3 columns-2 pt-2 w-[85%] m-auto  ">
         {data.length === 0 ? (
-          <h1 className="text-gray-300 text-4xl ">
-            No Images Found, Try another keyword or go to
-            <a href="/" className=" ">
-              home
-            </a>
-          </h1>
+          <></>
         ) : (
           data.map((value, index) => {
             return (
